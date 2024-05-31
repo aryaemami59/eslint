@@ -163,6 +163,7 @@
     "semver": "^7.5.3",
     "shelljs": "^0.8.5",
     "sinon": "^11.0.0",
+    "tsx": "^4.11.0",
     "typescript": "^5.3.3",
     "vite-plugin-commonjs": "^0.10.0",
     "webpack": "^5.23.0",
@@ -170,10 +171,14 @@
     "yorkie": "^2.0.0"
   },
   "peerDependencies": {
-    "jiti": "^1.21.0"
+    "jiti": "^1.21.0",
+    "tsx": "^4.11.0"
   },
   "peerDependenciesMeta": {
     "jiti": {
+      "optional": true
+    },
+    "tsx": {
       "optional": true
     }
   },
