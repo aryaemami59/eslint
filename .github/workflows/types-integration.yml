@@ -1,9 +1,5 @@
 name: CI
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push, pull_request, workflow_dispatch]
 
 permissions:
   contents: read
@@ -130,7 +126,7 @@ jobs:
       - name: Install Packages (eslint)
         working-directory: eslint
         run: npm install
-      
+
       - name: Update package.json eslint-visitor-keys
         uses: restackio/update-json-file-action@2.1
         with:
@@ -145,4 +141,6 @@ jobs:
 
       - name: Run TSC
         working-directory: eslint-js
-        run: npm run build:types --workspace eslint-visitor-keys
+        run: |
+          npx tsc -v
+          npm run build:types --workspace eslint-visitor-keys
