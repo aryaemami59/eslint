@@ -142,5 +142,6 @@ jobs:
       - name: Run TSC
         working-directory: eslint-js
         run: |
+          ls -R
           npx tsc -v
           npm run build:types --workspace eslint-visitor-keys
