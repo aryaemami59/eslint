@@ -26,7 +26,7 @@
  */
 
 import type { Linter } from "eslint";
-import js from "../../";
+import js = require("@eslint/js");
 
 let config: Linter.Config[];
 

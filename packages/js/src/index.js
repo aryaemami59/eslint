@@ -9,9 +9,14 @@
 // Public Interface
 //------------------------------------------------------------------------------
 
+const all = require("./configs/eslint-all");
+const recommended = require("./configs/eslint-recommended");
+
+const configs = {
+    all,
+    recommended
+};
+
 module.exports = {
-    configs: {
-        all: require("./configs/eslint-all"),
-        recommended: require("./configs/eslint-recommended")
-    }
+    configs
 };
