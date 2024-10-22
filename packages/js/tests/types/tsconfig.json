@@ -1,21 +1,19 @@
 {
     "compilerOptions": {
-        "module": "node16",
-        "lib": [
-            "dom",
-            "es6"
-        ],
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "strictNullChecks": true,
-        "strictFunctionTypes": true,
-        "types": [],
-        "noEmit": true,
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "exactOptionalPropertyTypes": true,
         "forceConsistentCasingInFileNames": true,
-        "exactOptionalPropertyTypes": true
+        "isolatedModules": true,
+        "lib": ["ESNext", "DOM"],
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "noEmit": true,
+        "strict": true,
+        "target": "ESNext",
+        "useDefineForClassFields": true,
+        "useUnknownInCatchVariables": true,
+        "verbatimModuleSyntax": true
     },
-    "files": [
-        "../../types/index.d.ts",
-        "types.test.ts"
-    ]
+    "include": ["types.test.ts", "../../types/**/*.d.ts"]
 }
