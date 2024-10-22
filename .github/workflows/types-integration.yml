@@ -1,9 +1,5 @@
 name: CI
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push, pull_request]
 
 permissions:
   contents: read
@@ -193,6 +189,10 @@ jobs:
             {
               name: eslint-config-eslint,
               directory: packages/eslint-config-eslint,
+            },
+            {
+              name: '@eslint/js',
+              directory: packages/js,
             },
           ]
 
