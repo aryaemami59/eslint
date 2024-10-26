@@ -114,7 +114,7 @@ jobs:
             wdio-logs/*.log
 
   test_types:
-    name: Types Test of ${{ matrix.package.name }}
+    name: Test Types of ${{ matrix.package.name }}
     runs-on: ubuntu-latest
 
     strategy:
