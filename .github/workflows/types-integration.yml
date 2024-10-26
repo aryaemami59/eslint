@@ -1,4 +1,4 @@
-name: CI
+name: Types Intergration
 on: [push, pull_request]
 
 permissions:
