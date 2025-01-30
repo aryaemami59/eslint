@@ -1461,11 +1461,8 @@ describe("ESLint", () => {
 
                 });
 
-                it("should load a TS config file when --experimental-strip-types is enabled", async () => {
-
-                    const originalProcessEnv = process.env;
-
-                    process.env = { ...process.env, NODE_OPTIONS: "--experimental-strip-types" };
+                // eslint-disable-next-line n/no-unsupported-features/node-builtins -- it's still an experimental feature.
+                (process.features.typescript === false ? it.skip : it)("should load a TS config file when --experimental-strip-types is enabled", async () => {
 
                     const cwd = getFixturePath("ts-config-files", "ts");
 
@@ -1488,7 +1485,7 @@ describe("ESLint", () => {
                     eslint = new ESLint({
                         cwd,
                         overrideConfigFile: "eslint.config.ts",
-                        flags
+                        flags: ["unstable_native_nodejs_ts_config"]
                     });
 
                     const results = await eslint.lintText("foo;");
@@ -1498,9 +1495,9 @@ describe("ESLint", () => {
                     assert.strictEqual(results[0].messages[0].severity, 2);
                     assert.strictEqual(results[0].messages[0].ruleId, "no-undef");
 
-                    process.env = originalProcessEnv;
 
                 });
+
 
             });
 
@@ -6222,11 +6219,8 @@ describe("ESLint", () => {
 
                 });
 
-                it("should load a TS config file when --experimental-strip-types is enabled", async () => {
-
-                    const originalProcessEnv = process.env;
-
-                    process.env = { ...process.env, NODE_OPTIONS: "--experimental-transform-types" };
+                // eslint-disable-next-line n/no-unsupported-features/node-builtins -- it's still an experimental feature.
+                (process.features.typescript === false ? it.skip : it)("should load a TS config file when --experimental-strip-types is enabled", async () => {
 
                     const cwd = getFixturePath("ts-config-files", "ts");
 
@@ -6250,7 +6244,7 @@ describe("ESLint", () => {
                     eslint = new ESLint({
                         cwd,
                         overrideConfigFile: "eslint.config.ts",
-                        flags
+                        flags: ["unstable_native_nodejs_ts_config"]
                     });
 
                     const results = await eslint.lintFiles(["foo*.js"]);
@@ -6262,7 +6256,6 @@ describe("ESLint", () => {
                     assert.strictEqual(results[0].messages[0].severity, 2);
                     assert.strictEqual(results[0].messages[0].ruleId, "no-undef");
 
-                    process.env = originalProcessEnv;
 
                 });
 

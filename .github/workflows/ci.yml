@@ -80,6 +80,9 @@ jobs:
             node: "lts/*"
           - os: macOS-latest
             node: "lts/*"
+          - os: ubuntu-latest
+            node: 22.x
+            experimental_strip_types: true
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
@@ -89,7 +92,13 @@ jobs:
       - name: Install Packages
         run: npm install
       - name: Test
+        if: ${{ !matrix.experimental_strip_types }}
         run: node Makefile mocha
+      - name: Test with type stripping enabled
+        if: ${{ matrix.experimental_strip_types }}
+        env:
+          NODE_OPTIONS: --experimental-strip-types
+        run: node --experimental-strip-types Makefile mocha
       - name: Fuzz Test
         run: node Makefile fuzz
       - name: Test EMFILE Handling
