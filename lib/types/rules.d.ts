@@ -308,6 +308,7 @@ export interface ESLintRules extends Linter.RulesRecord {
 	 * @since 0.1.0
 	 * @see https://eslint.org/docs/latest/rules/block-scoped-var
 	 */
+    
 	"block-scoped-var": Linter.RuleEntry<[]>;
 
 	/**
@@ -1953,6 +1954,7 @@ export interface ESLintRules extends Linter.RulesRecord {
 	 * @since 0.0.5
 	 * @see https://eslint.org/docs/latest/rules/no-alert
 	 */
+    
 	"no-alert": Linter.RuleEntry<[]>;
 
 	/**

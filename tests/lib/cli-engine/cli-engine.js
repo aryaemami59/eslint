@@ -28,6 +28,15 @@ const fCache = require("file-entry-cache");
 // Tests
 //------------------------------------------------------------------------------
 
+/**
+ * @import { CLIEngine , getCLIEngineInternalSlots } from "../../../lib/cli-engine/cli-engine.js";
+ */
+
+/**
+ * @typedef {typeof CLIEngine} CLIEngineType
+ * @typedef {typeof getCLIEngineInternalSlots} getCLIEngineInternalSlotsType
+ */
+
 describe("CLIEngine", () => {
 	const examplePluginName = "eslint-plugin-example",
 		examplePluginNameWithNamespace = "@eslint/eslint-plugin-example",
@@ -44,10 +53,10 @@ describe("CLIEngine", () => {
 			"eslint/fixtures",
 		);
 
-	/** @type {import("../../../lib/cli-engine").CLIEngine} */
+	/** @type {CLIEngineType} */
 	let CLIEngine;
 
-	/** @type {import("../../../lib/cli-engine/cli-engine").getCLIEngineInternalSlots} */
+	/** @type {getCLIEngineInternalSlotsType} */
 	let getCLIEngineInternalSlots;
 
 	/**
@@ -69,7 +78,7 @@ describe("CLIEngine", () => {
 	/**
 	 * Create the CLIEngine object by mocking some of the plugins
 	 * @param {Object} options options for CLIEngine
-	 * @returns {CLIEngine} engine object
+	 * @returns {InstanceType<typeof CLIEngine>} engine object
 	 * @private
 	 */
 	function cliEngineWithPlugins(options) {

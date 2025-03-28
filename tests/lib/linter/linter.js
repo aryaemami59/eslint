@@ -38,10 +38,18 @@ const TEST_CODE = "var answer = 6 * 7;",
 //------------------------------------------------------------------------------
 
 /**
+ * @import { Linter as LinterType, Rule, AST, Scope,  } from 'eslint';
+ */
+
+/**
+ * @typedef {typeof LinterType} Linter
+ */
+
+/**
  * Get variables in the current scope
- * @param {Object} scope current scope
+ * @param {Scope.Scope} scope current scope
  * @param {string} name name of the variable to look for
- * @returns {ASTNode|null} The variable object
+ * @returns {Rule.Node|null} The variable object
  * @private
  */
 function getVariable(scope, name) {
@@ -63,7 +71,7 @@ const ESLINT_ENV = "eslint-env";
 describe("Linter", () => {
 	const filename = "filename.js";
 
-	/** @type {InstanceType<import("../../../lib/linter/linter.js").Linter>} */
+	/** @type {InstanceType<typeof Linter>} */
 	let linter;
 
 	beforeEach(() => {
@@ -8979,7 +8987,7 @@ describe("Linter with FlatConfigArray", () => {
 
 	/**
 	 * Creates a config array with some default properties.
-	 * @param {FlatConfig|FlatConfig[]} value The value to base the
+	 * @param {Linter.Config|FlatConfig[]} value The value to base the
 	 *      config array on.
 	 * @param {{basePath: string, shouldIgnore: boolean, baseConfig: FlatConfig}} [options]
 	 *      The options to use for the config array instance.

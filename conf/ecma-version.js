@@ -7,7 +7,7 @@
 
 /**
  * The latest ECMAScript version supported by ESLint.
- * @type {number} year-based ECMAScript version
+ * year-based ECMAScript version
  */
 const LATEST_ECMA_VERSION = 2025;
 
